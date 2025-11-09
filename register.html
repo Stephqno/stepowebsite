@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Universidad</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #e6f0ff, #d9e6ff);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #2c3e50;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1000px;
+            background: #e6f0ff;
+            border-radius: 25px;
+            box-shadow: 
+                12px 12px 24px #c2d4ff,
+                -12px -12px 24px #ffffff;
+            overflow: hidden;
+        }
+
+        .left-panel {
+            flex: 1;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .left-panel h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .left-panel p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .features {
+            text-align: left;
+            width: 100%;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .feature i {
+            font-size: 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .right-panel {
+            flex: 1;
+            padding: 50px 40px;
+            position: relative;
+        }
+
+        .right-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #3498db, #9b59b6, #e74c3c);
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 
+                6px 6px 12px #2980b9,
+                -6px -6px 12px #3498db;
+        }
+
+        .logo i {
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #3498db;
+            font-size: 1.2rem;
+        }
+
+        .input {
+            width: 100%;
+            padding: 16px 20px 16px 60px;
+            border: none;
+            border-radius: 15px;
+            background: #e6f0ff;
+            box-shadow: 
+                inset 6px 6px 12px #c2d4ff,
+                inset -6px -6px 12px #ffffff;
+            font-size: 1rem;
+            color: #2c3e50;
+            outline: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .input:focus {
+            box-shadow: 
+                inset 8px 8px 16px #c2d4ff,
+                inset -8px -8px 16px #ffffff;
+            transform: scale(1.02);
+        }
+
+        .input::placeholder {
+            color: #95a5a6;
+            font-weight: 400;
+        }
+
+        .register-button {
+            padding: 18px 35px;
+            border: none;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 
+                6px 6px 12px #219653,
+                -6px -6px 12px #34d399;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .register-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                8px 8px 16px #219653,
+                -8px -8px 16px #34d399;
+        }
+
+        .register-button:active {
+            transform: translateY(0);
+        }
+
+        .login-link {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-align: center;
+            display: block;
+            margin-top: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .login-link:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            text-align: left;
+            display: none;
+        }
+
+        .terms {
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            text-align: center;
+            margin-top: 15px;
+            line-height: 1.4;
+        }
+
+        .terms a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .terms a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .left-panel {
+                padding: 30px 20px;
+            }
+            
+            .right-panel {
+                padding: 30px 20px;
+            }
+            
+            .title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <h2>¡Bienvenido!</h2>
+            <p>Regístrate para acceder a tu sistema de gestión académica personalizado</p>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-tasks"></i>
+                    <div>
+                        <h3>Gestión de Tareas</h3>
+                        <p>Organiza y prioriza tus tareas universitarias</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-calendar-alt"></i>
+                    <div>
+                        <h3>Calendario Inteligente</h3>
+                        <p>Visualiza tus tareas en un calendario interactivo</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-bell"></i>
+                    <div>
+                        <h3>Recordatorios</h3>
+                        <p>Recibe notificaciones de vencimientos importantes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="right-panel">
+            <div class="logo">
+                <i class="fas fa-user-plus"></i>
+            </div>
+            <h1 class="title">Crear Cuenta</h1>
+            <p class="subtitle">Completa tus datos para registrarte</p>
+            
+            <form class="form" id="registerForm">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" class="input" id="nameInput" placeholder="Nombre Completo" required>
+                </div>
+                
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" class="input" id="emailInput" placeholder="Correo Electrónico" required>
+                </div>
+                
+                <div class="input-group">
+                    <i class="fas fa-user-tag"></i>
+                    <input type="text" class="input" id="usernameInput" placeholder="Nombre de Usuario" required>
+                </div>
+                
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" class="input" id="passwordInput" placeholder="Contraseña" required>
+                </div>
+                
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" class="input" id="confirmPasswordInput" placeholder="Confirmar Contraseña" required>
+                </div>
+                
+                <div class="input-group">
+                    <i class="fas fa-graduation-cap"></i>
+                    <select class="input" id="roleInput" required>
+                        <option value="" disabled selected>Selecciona tu rol</option>
+                        <option value="student">Estudiante</option>
+<!--<option value="professor">Profesor</option>-->
+                    </select>
+                </div>
+                
+                <div class="error-message" id="errorMessage">
+                    Por favor corrige los errores en el formulario
+                </div>
+                
+                <button type="submit" class="register-button">
+                    <i class="fas fa-user-plus"></i> Registrarse
+                </button>
+           
+<!--    <p class="terms">
+                    Al registrarte, aceptas nuestros <a href="#">Términos de Servicio</a> y <a href="#">Política de Privacidad</a>
+                </p>     
+-->               
+                
+                <a href="login.html" class="login-link">¿Ya tienes una cuenta? Inicia sesión aquí</a>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('nameInput').value.trim();
+            const email = document.getElementById('emailInput').value.trim();
+            const username = document.getElementById('usernameInput').value.trim();
+            const password = document.getElementById('passwordInput').value;
+            const confirmPassword = document.getElementById('confirmPasswordInput').value;
+            const role = document.getElementById('roleInput').value;
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Reset error message
+            errorMessage.style.display = 'none';
+            
+            // Validation
+            if (name === '' || email === '' || username === '' || password === '' || role === '') {
+                errorMessage.textContent = 'Por favor completa todos los campos obligatorios';
+                errorMessage.style.display = 'block';
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                errorMessage.textContent = 'Por favor ingresa un correo electrónico válido';
+                errorMessage.style.display = 'block';
+                return;
+            }
+            
+            // Password validation
+            if (password.length < 6) {
+                errorMessage.textContent = 'La contraseña debe tener al menos 6 caracteres';
+                errorMessage.style.display = 'block';
+                return;
+            }
+            
+            // Password match validation
+            if (password !== confirmPassword) {
+                errorMessage.textContent = 'Las contraseñas no coinciden';
+                errorMessage.style.display = 'block';
+                return;
+            }
+            
+            // Username validation
+            if (username.length < 3) {
+                errorMessage.textContent = 'El nombre de usuario debe tener al menos 3 caracteres';
+                errorMessage.style.display = 'block';
+                return;
+            }
+            
+            try {
+                // Send data to Netlify function
+                const res = await fetch('/.netlify/functions/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, username, password, role })
+                });
+
+                const data = await res.json();
+                
+                if (data.error) {
+                    errorMessage.textContent = data.error;
+                    errorMessage.style.display = 'block';
+                } else {
+                    // Registration successful
+                    alert('¡Registro exitoso! Ahora inicia sesión.');
+                    window.location.href = 'login.html';
+                }
+            } catch (error) {
+                console.error('Error de red:', error);
+                errorMessage.textContent = 'Error de conexión. Inténtalo de nuevo.';
+                errorMessage.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
+

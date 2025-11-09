@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Universidad</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #e6f0ff, #d9e6ff);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #2c3e50;
+        }
+
+        .login-container {
+            background: #e6f0ff;
+            border-radius: 25px;
+            padding: 50px;
+            box-shadow: 
+                12px 12px 24px #c2d4ff,
+                -12px -12px 24px #ffffff;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #3498db, #9b59b6, #e74c3c);
+        }
+
+        .login-logo {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            box-shadow: 
+                6px 6px 12px #2980b9,
+                -6px -6px 12px #3498db;
+        }
+
+        .login-logo i {
+            color: white;
+            font-size: 3rem;
+        }
+
+        .login-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .login-subtitle {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #3498db;
+            font-size: 1.2rem;
+        }
+
+        .login-input {
+            width: 100%;
+            padding: 18px 20px 18px 60px;
+            border: none;
+            border-radius: 15px;
+            background: #e6f0ff;
+            box-shadow: 
+                inset 6px 6px 12px #c2d4ff,
+                inset -6px -6px 12px #ffffff;
+            font-size: 1.1rem;
+            color: #2c3e50;
+            outline: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .login-input:focus {
+            box-shadow: 
+                inset 8px 8px 16px #c2d4ff,
+                inset -8px -8px 16px #ffffff;
+            transform: scale(1.02);
+        }
+
+        .login-input::placeholder {
+            color: #95a5a6;
+            font-weight: 400;
+        }
+
+        .login-button {
+            padding: 18px 35px;
+            border: none;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 
+                6px 6px 12px #2980b9,
+                -6px -6px 12px #3498db;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .login-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                8px 8px 16px #2980b9,
+                -8px -8px 16px #3498db;
+        }
+
+        .login-button:active {
+            transform: translateY(0);
+        }
+        .login-container > p {
+            margin-top: 25px;
+        }
+
+        .signup-link {
+            color: #3498db;
+        }
+
+        .signup-link {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .signup-link:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            text-align: left;
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            .login-container {
+                padding: 40px 30px;
+            }
+            
+            .login-title {
+                font-size: 2rem;
+            }
+            
+            .login-subtitle {
+                font-size: 1rem;
+            }
+            
+            .login-input {
+                padding: 16px 20px 16px 50px;
+                font-size: 1rem;
+            }
+            
+            .login-button {
+                padding: 16px 25px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-logo">
+            <i class="fas fa-graduation-cap"></i>
+        </div>
+        <h1 class="login-title">Iniciar Sesión</h1>
+        <p class="login-subtitle">Accede a tu cuenta universitaria</p>
+        
+        <form class="login-form" id="loginForm">
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" class="login-input" id="usernameInput" placeholder="Nombre de usuario o correo" required>
+            </div>
+            
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" class="login-input" id="passwordInput" placeholder="Contraseña" required>
+            </div>
+            
+            <div class="error-message" id="errorMessage">
+                Nombre de usuario o contraseña incorrectos
+            </div>
+            
+            <button type="submit" class="login-button">
+                <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+            </button>
+        </form>
+        
+        <p>No tienes una cuenta? <a href="register.html" class="signup-link">Regístrate aquí</a></p>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('usernameInput').value.trim();
+            const password = document.getElementById('passwordInput').value;
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Reset error message
+            errorMessage.style.display = 'none';
+            
+            try {
+                // Send data to Netlify function
+                const res = await fetch('/.netlify/functions/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const data = await res.json();
+                
+                if (data.error) {
+                    errorMessage.textContent = data.error;
+                    errorMessage.style.display = 'block';
+                    // Shake animation for error
+                    const form = document.querySelector('.login-form');
+                    form.style.animation = 'shake 0.5s';
+                    setTimeout(() => {
+                        form.style.animation = '';
+                    }, 500);
+                } else {
+                    // Login successful
+                    // Store user session info in localStorage (simulated)
+                    localStorage.setItem('currentUser', JSON.stringify(data.user));
+                    window.location.href = 'app.html'; // Redirect to main app
+                }
+            } catch (error) {
+                console.error('Error de red:', error);
+                errorMessage.textContent = 'Error de conexión. Inténtalo de nuevo.';
+                errorMessage.style.display = 'block';
+            }
+        });
+        
+        // Add shake animation to CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                20%, 60% { transform: translateX(-10px); }
+                40%, 80% { transform: translateX(10px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
+

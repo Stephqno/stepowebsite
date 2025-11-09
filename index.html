@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión Académica</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #e6f0ff, #d9e6ff);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #2c3e50;
+        }
+
+        .hero-container {
+            text-align: center;
+            max-width: 800px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 25px;
+            box-shadow: 
+                12px 12px 24px #c2d4ff,
+                -12px -12px 24px #ffffff;
+            backdrop-filter: blur(10px);
+        }
+
+        .university-logo {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            box-shadow: 
+                8px 8px 16px #2980b9,
+                -8px -8px 16px #3498db;
+        }
+
+        .university-logo i {
+            color: white;
+            font-size: 4rem;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .cta-btn {
+            padding: 18px 40px;
+            border: none;
+            border-radius: 15px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 
+                6px 6px 12px rgba(0,0,0,0.1),
+                -6px -6px 12px rgba(255,255,255,0.8);
+        }
+
+        .login-btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+        }
+
+        .register-btn {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                8px 8px 16px rgba(0,0,0,0.15),
+                -8px -8px 16px rgba(255,255,255,0.9);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+            width: 100%;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 
+                4px 4px 8px #c2d4ff,
+                -4px -4px 8px #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                8px 8px 16px #c2d4ff,
+                -8px -8px 16px #ffffff;
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .feature-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .feature-text {
+            color: #7f8c8d;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .footer {
+            margin-top: 60px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-container {
+                padding: 30px 20px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-btn {
+                width: 80%;
+                padding: 16px;
+                font-size: 1.1rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-container">
+        <div class="university-logo">
+            <i class="fas fa-graduation-cap"></i>
+        </div>
+        <h1 class="hero-title">Sistema de Gestión Académica</h1>
+        <p class="hero-subtitle">Organiza tus tareas, exámenes y proyectos universitarios en un solo lugar. 
+        Con nuestro sistema, nunca más perderás una fecha importante.</p>
+        
+        <div class="cta-buttons">
+            <a href="login.html" class="cta-btn login-btn">
+                <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+            </a>
+            <a href="register.html" class="cta-btn register-btn">
+                <i class="fas fa-user-plus"></i> Registrarse
+            </a>
+        </div>
+        
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <h3 class="feature-title">Gestión de Tareas</h3>
+                <p class="feature-text">Crea, organiza y prioriza todas tus tareas académicas con facilidad. 
+                Nunca más olvides un deber importante.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h3 class="feature-title">Calendario Inteligente</h3>
+                <p class="feature-text">Visualiza todas tus fechas importantes en un calendario interactivo 
+                que se actualiza automáticamente.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <h3 class="feature-title">Recordatorios</h3>
+                <p class="feature-text">Recibe notificaciones automáticas antes de cada vencimiento 
+                para que siempre estés preparado.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        © 2025 Sistema de Gestión Académica - Universidad
+    </div>
+</body>
+</html>
+
