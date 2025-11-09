@@ -2,8 +2,12 @@ const { Pool } = require('pg');
 const bcrypt = require('bcrypt');
 
 const pool = new Pool({
-  connectionString: "ostgresql://neondb_owner:npg_1OxpDumv8BAg@ep-wispy-dawn-aefs5ykp-pooler.c-2.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require",
-  ssl: { rejectUnauthorized: false }
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  ssl: { rejectUnauthorized: false },
+  port: 5432,
 });
 
 exports.handler = async (event) => {
