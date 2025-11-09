@@ -1,5 +1,5 @@
 {
-  "name": "site2",
+  "name": "stepowebsite",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,9 +9,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
-  "dependencies": {
-    "bcrypt": "^6.0.0",
-    "pg": "^8.16.3"
+  "engines": {
+    "node": "18.18.0"
   }
 }
