@@ -1,18 +1,16 @@
 {
   "name": "stepowebsite",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Sitio web de tareas universitarias.",
+  "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "serve ."
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "dependencies": {
+    "pg": "^8.11.5",
+    "bcrypt": "^5.1.1"
+  },
   "engines": {
     "node": "18.18.0"
-  "dependencies": {
-    "pg": "^8.11.5"
-    "bcrypt": "^5.1.1"
   }
 }
