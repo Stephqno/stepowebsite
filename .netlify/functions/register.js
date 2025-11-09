@@ -29,10 +29,10 @@ exports.handler = async (event) => {
     const passwordHash = await bcrypt.hash(password, saltRounds);
 
     // Insertar en la base de datos
-    const query = `
-      INSERT INTO users (name, email, username, password_hash, role, created_at)
-      VALUES ($1, $2, $3, $4, $5, NOW())
-       RETURNING id, name, username, role;
+   const query = `
+  INSERT INTO users (name, email, username, password_hash, role, created_at)
+  VALUES ($1, $2, $3, $4, $5, CURRENT_TIMESTAMP)
+  RETURNING id, name, username, role;
 `;
     const result = await pool.query(query, [name, email, username, passwordHash, role || 'student']);
     await pool.end();
