@@ -11,5 +11,8 @@
   "license": "ISC",
   "engines": {
     "node": "18.18.0"
+  "dependencies": {
+    "pg": "^8.11.5"
+    "bcrypt": "^5.1.1"
   }
 }
